@@ -75,6 +75,7 @@ public class RegisterScreen extends Fragment {
                     Log.d("Register","registration initiated");
                 }
                 else {
+                    progressBar.setVisibility(View.INVISIBLE);
                     textView.setText("Please Fill All Fields");
                 }
 

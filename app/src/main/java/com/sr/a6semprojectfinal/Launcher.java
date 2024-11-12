@@ -23,7 +23,7 @@ public class Launcher extends AppCompatActivity {
     public void handler(){
 
         VideoView view = findViewById(R.id.intro_animation);
-        view.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.splash_screen));
+        view.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.vibe_cart_intro));
         view.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {

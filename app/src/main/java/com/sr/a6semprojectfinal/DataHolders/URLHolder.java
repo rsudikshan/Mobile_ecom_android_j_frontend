@@ -8,7 +8,7 @@ public class URLHolder {
 
 
 
-    public static String MainURL = "https://0e50-2400-1a00-b060-452f-6561-cf45-610c-f110.ngrok-free.app";
+    public static String MainURL = "https://e081-2400-1a00-b060-452f-65c4-7e24-7a0a-ad34.ngrok-free.app";
     public static String APIUrl = MainURL+"/endpoints/APIendpoints/";
     public static String ImageUrl = MainURL+"/endpoints/ImageStore/";
 

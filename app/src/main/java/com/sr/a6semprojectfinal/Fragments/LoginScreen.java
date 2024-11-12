@@ -23,6 +23,8 @@ public class LoginScreen extends Fragment {
     EditText usernameInput;
     EditText passwordInput;
     ProgressBar progressBar;
+    TextView clickable;
+
 
 
 
@@ -33,6 +35,18 @@ public class LoginScreen extends Fragment {
         usernameInput = view.findViewById(R.id.login_username_input);
         passwordInput = view.findViewById(R.id.login_password_input);
         progressBar = view.findViewById(R.id.loadingIndicator);
+        clickable = view.findViewById(R.id.register_login_link);
+
+        clickable.setOnClickListener((v)->{
+            RegisterScreen registerScreen = new RegisterScreen();
+            FragmentManager manager = getParentFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container,registerScreen);
+            transaction.commit();
+            transaction.addToBackStack(null);
+
+        });
+
 
         handler();
         return view;

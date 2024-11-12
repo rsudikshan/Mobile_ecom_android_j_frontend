@@ -38,6 +38,8 @@ public class ExploreRecyclerAdapter extends RecyclerView.Adapter<ExploreRecycler
     }
 
 
+
+
     @Override
     public int getItemCount(){
         return productNames.size();

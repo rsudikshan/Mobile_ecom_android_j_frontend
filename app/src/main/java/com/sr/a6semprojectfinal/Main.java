@@ -4,21 +4,18 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.sr.a6semprojectfinal.APIRequests.GetExploreData;
 import com.sr.a6semprojectfinal.APIRequests.LoginCheck;
 import com.sr.a6semprojectfinal.DataHolders.SessionReference;
 import com.sr.a6semprojectfinal.Fragments.Cart;
 import com.sr.a6semprojectfinal.Fragments.ExploreFragment;
-import com.sr.a6semprojectfinal.Fragments.NotLoggedIn;
+import com.sr.a6semprojectfinal.Fragments.Home;
+import com.sr.a6semprojectfinal.Fragments.LoginScreen;
 import com.sr.a6semprojectfinal.Fragments.UserInfo;
 
 public class Main extends FragmentActivity {
@@ -28,6 +25,13 @@ public class Main extends FragmentActivity {
     public void onCreate(Bundle b){
         super.onCreate(b);
         setContentView(R.layout.main);
+        Home fragment = new Home();
+
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.fragment_container,fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
         LoginCheck.check(this);
         handler();
 
@@ -71,7 +75,7 @@ public class Main extends FragmentActivity {
                 }
 
                 else {
-                    NotLoggedIn fragment = new NotLoggedIn();
+                    LoginScreen fragment = new LoginScreen();
 
                     FragmentManager manager = getSupportFragmentManager();
                     FragmentTransaction transaction = manager.beginTransaction();
@@ -99,6 +103,16 @@ public class Main extends FragmentActivity {
             }
 
 
+        });
+
+        home.setOnClickListener((view)->{
+            Home fragment = new Home();
+
+            FragmentManager manager = getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container,fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         });
 
 

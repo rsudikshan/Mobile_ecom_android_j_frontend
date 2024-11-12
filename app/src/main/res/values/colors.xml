@@ -17,6 +17,9 @@
     <color name="dividerGray">#E0E0E0</color>
     <color name="primaryColor">#6200EE</color>
     <color name="gray">#808080</color>
+    <color name="gradient_start">#FF7F50</color> <!-- Coral -->
+    <color name="gradient_end">#FF4500</color>
+    <color name="gold_accent">#FFD700</color>
 
 
 
