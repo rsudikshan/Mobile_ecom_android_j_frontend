@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">6SemProjectFinal</string>
+    <string name="order_btn">Add To Cart</string>
+
+    <array name="category_entries">
+        <item>Default</item>
+        <item>Tech</item>
+        <item>Grocery</item>
+        <item>Automobile</item>
+        <item>Fashion</item>
+        <item>Sports</item>
+    </array>
+    <string name="login">Log In</string>
+    <string name="login_username_label">Username:</string>
+    <string name="login_password_label">Password:</string>
+    <string name="register">Register</string>
+    <string name="register_email_label">Email:</string>
+    <string name="logout">Log Out</string>
+    <string name="remove">Remove</string>
+    <string name="checkout">Checkout</string>
+    <string name="login_username_hint">Insert your username :</string>
+    <string name="login_password_hint">Insert your password :</string>
+
+
+</resources>

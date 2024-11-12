@@ -1,0 +1,6 @@
+<!-- res/drawable/bottom_nav_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/dividerGray"/>
+    <corners android:radius="50dp"/>
+    <shadowLayer android:radius="2dp" android:color="#40000000"/>
+</shape>
