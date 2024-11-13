@@ -27,8 +27,9 @@ public class GetExploreData {
 
     public static ArrayList<String> categorizedProductNames = new ArrayList<>();
     public static ArrayList<String> categorizedProductPrice = new ArrayList<>();
-    public static ArrayList<String> categorizedImageURL = new ArrayList<>();
     public static String categorizedURL = URLHolder.APIUrl+"getProductsCategorically.php?category=";
+    public static ArrayList<String> categorizedImageURL = new ArrayList<>();
+    public static ArrayList<String> categorizedItemCategory = new ArrayList<>();
 
     public interface onCategoryLoadingComplete{
         public void onCategoryResults();
@@ -46,10 +47,15 @@ public class GetExploreData {
 
     public static void getItems(Context context,OnLoadingComplete complete){
         try{
-            productNames.clear();
-            productPrice.clear();
-            imageURL.clear();
-            category.clear();
+
+                productNames.clear();
+                productPrice.clear();
+                imageURL.clear();
+                category.clear();
+
+
+
+
             Log.d("Volley","RequestStarted");
             RequestQueue requestQueue = Volley.newRequestQueue(context);
             JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, URLHolder.APIUrl+"getProducts.php", null,
@@ -63,16 +69,18 @@ public class GetExploreData {
                         for(i = 0 ; i<length ; i++){
                             try {
                                 JSONObject object = response.getJSONObject(i);
+
                                 productNames.add(object.getString("name"));
                                 productPrice.add(object.getString("price"));
                                 imageURL.add(URLHolder.ImageUrl+object.getString("image"));
                                 category.add(object.getString("category"));
+                                Log.d("Volley",category.get(0));
                                 complete.onResults();
                             }
                             catch (Exception e){
                                 Toast.makeText(context,"Invalid JSON",Toast.LENGTH_SHORT).show();
-                                Log.d("Volley","Couldn't Parse");
-                                Log.d("Volley", e.toString());
+                                Log.d("Volley","Couldn't Parse Here");
+                                Log.d("Volley", e.toString() );
                                 complete.onCategoryError();
                             }
 
@@ -92,9 +100,6 @@ public class GetExploreData {
 
             requestQueue.add(request);
 
-
-
-
         }
         catch (Exception e){
             e.printStackTrace();
@@ -106,6 +111,7 @@ public class GetExploreData {
         categorizedProductNames.clear();
         categorizedProductPrice.clear();
         categorizedImageURL.clear();
+        categorizedItemCategory.clear();
         String finalURL = categorizedURL+category;
         Log.d("Volley",finalURL);
 
@@ -121,6 +127,7 @@ public class GetExploreData {
                                 JSONObject object = response.getJSONObject(i);
                                 categorizedProductNames.add(object.getString("name"));
                                 categorizedProductPrice.add(object.getString("price"));
+                                categorizedItemCategory.add(object.getString("category"));
                                 categorizedImageURL.add(URLHolder.ImageUrl+object.getString("image"));
 
                             }
@@ -179,6 +186,9 @@ public class GetExploreData {
 
     public static ArrayList<String> getCategorizedImageURL(){
         return categorizedImageURL;
+    }
+    public static ArrayList<String> getCategorizedProductCategory(){
+        return categorizedItemCategory;
     }
 
 }

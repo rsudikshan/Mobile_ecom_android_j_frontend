@@ -67,7 +67,11 @@ public class ExploreFragment extends Fragment {
                     GetExploreData.getItems(getContext(), new GetExploreData.OnLoadingComplete() {
                         @Override
                         public void onResults() {
-                            adapter.updateData(GetExploreData.getProductNames(), GetExploreData.getProductPrice(), GetExploreData.getImageURL());
+                            adapter.updateData(
+                                    GetExploreData.getProductNames(),
+                                    GetExploreData.getProductPrice(),
+                                    GetExploreData.getImageURL(),
+                                    GetExploreData.getCategory());
                             bar.setVisibility(View.INVISIBLE);
                         }
 
@@ -88,7 +92,9 @@ public class ExploreFragment extends Fragment {
                             adapter.updateData(
                                     GetExploreData.getCategorizedProductNames(),
                                     GetExploreData.getCategorizedProductPrice(),
-                                    GetExploreData.getCategorizedImageURL()
+                                    GetExploreData.getCategorizedImageURL(),
+                                    GetExploreData.getCategorizedProductCategory()
+
                             );
                             bar.setVisibility(View.INVISIBLE);
                         }
@@ -112,8 +118,7 @@ public class ExploreFragment extends Fragment {
             SearchRequest.search(text, getContext(), new SearchRequest.SearchCompletionListener() {
                 @Override
                 public void onComplete() {
-                    adapter.updateData(SearchRequest.getProduct_name(), SearchRequest.getProduct_price(), SearchRequest.getImage_url());
-
+                    adapter.updateData(SearchRequest.getProduct_name(), SearchRequest.getProduct_price(), SearchRequest.getImage_url(), SearchRequest.getCategory());
                     Log.d("Search", "Complete");
                 }
 

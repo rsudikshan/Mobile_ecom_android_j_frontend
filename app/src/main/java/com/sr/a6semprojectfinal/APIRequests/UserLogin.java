@@ -55,7 +55,7 @@ public class UserLogin {
 
                         if (responseString.equals("successful")) {
                             String email = object.getString("email");
-
+                            SessionReference.username = username;
                             SessionReference.isLoggedIn = true;
                             SessionReference.sessionTracker.put("Username", username);
                             SessionReference.sessionTracker.put("Email",email);

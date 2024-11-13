@@ -3,12 +3,9 @@ package com.sr.a6semprojectfinal.DataHolders;
 import com.sr.a6semprojectfinal.Main;
 
 public class URLHolder {
-    //public static String APIUrl = "http://localhost/endpoints/APIendpoints/";
 
 
-
-
-    public static String MainURL = "https://e081-2400-1a00-b060-452f-65c4-7e24-7a0a-ad34.ngrok-free.app";
+    public static String MainURL = "https://234f-2400-1a00-b060-452f-c80c-23ee-83de-1efa.ngrok-free.app";
     public static String APIUrl = MainURL+"/endpoints/APIendpoints/";
     public static String ImageUrl = MainURL+"/endpoints/ImageStore/";
 
@@ -20,6 +17,8 @@ public class URLHolder {
     public static String Logout = APIUrl+"logout.php";
     public static String recommendedProducts = APIUrl+"recommendedProducts.php";
     public static String searchURL = APIUrl+"searchProducts.php";
+    public static String setTransaction = APIUrl+"setTransactionHistory.php";
+
 
 
     // https://b15d-2400-1a00-b060-d8b0-88b7-690e-16ad-f1b6.ngrok-free.app

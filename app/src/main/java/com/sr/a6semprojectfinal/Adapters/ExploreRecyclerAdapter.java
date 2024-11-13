@@ -22,10 +22,10 @@ import java.util.ArrayList;
 
 public class ExploreRecyclerAdapter extends RecyclerView.Adapter<ExploreRecyclerAdapter.CustomRecylcerViewHolder> {
     Context context;
-    public ArrayList<String> productNames;
-    public ArrayList<String> productPrice;
-    public ArrayList<String> imageURL;
-    public ArrayList<String> category;
+    public ArrayList<String> productNames = new ArrayList<String>();
+    public ArrayList<String> productPrice = new ArrayList<String>();;
+    public ArrayList<String> imageURL = new ArrayList<String>();;
+    public ArrayList<String> category = new ArrayList<String>();;
 
     public ExploreRecyclerAdapter(Context context){
         this.context = context;
@@ -73,10 +73,12 @@ public class ExploreRecyclerAdapter extends RecyclerView.Adapter<ExploreRecycler
                         String cartProductName = productNames.get(i);
                         String cartProductPrice = productPrice.get(i);
                         String cartImageURL = imageURL.get(i);
+                        String cartCategory = category.get(i);
 
                         CartData.productNames.add(cartProductName);
                         CartData.productPrice.add(cartProductPrice);
                         CartData.imageURL.add(cartImageURL);
+                        CartData.category.add(cartCategory);
 
                         Toast.makeText(context, cartProductName + " Added to Cart", Toast.LENGTH_SHORT).show();
 
@@ -121,14 +123,16 @@ public class ExploreRecyclerAdapter extends RecyclerView.Adapter<ExploreRecycler
         }
     }
 
-    public void updateData(ArrayList<String> productNames, ArrayList<String> productPrice, ArrayList<String> imageURL){
+    public void updateData(ArrayList<String> productNames, ArrayList<String> productPrice, ArrayList<String> imageURL, ArrayList<String> category){
             this.productNames.clear();
             this.productPrice.clear();
             this.imageURL.clear();
+            this.category.clear();
 
             this.productNames.addAll(productNames);
             this.productPrice.addAll(productPrice);
             this.imageURL.addAll(imageURL);
+            this.category.addAll(category);
 
             notifyDataSetChanged();
     }

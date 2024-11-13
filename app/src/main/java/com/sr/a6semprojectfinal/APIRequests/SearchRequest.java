@@ -18,6 +18,7 @@ public class SearchRequest {
     public static ArrayList<String> product_name = new ArrayList<>();
     public static ArrayList<String> product_price= new ArrayList<>();
     public static ArrayList<String> image_url = new ArrayList<>();
+    public static ArrayList<String> category = new ArrayList<>();
 
     public interface SearchCompletionListener{
         public void onComplete();
@@ -43,10 +44,12 @@ public class SearchRequest {
                             String result_product_name = object.getString("name");
                             String result_product_price = object.getString("price");
                             String result_product_image = object.getString("image");
+                            String result_product_category = object.getString("category");
 
                             product_name.add(result_product_name);
                             product_price.add(result_product_price);
                             image_url.add(URLHolder.ImageUrl+result_product_image);
+                            category.add(result_product_category);
 
                             Log.d("Search","Parsed");
 
@@ -80,6 +83,9 @@ public class SearchRequest {
     }
     public static ArrayList<String> getImage_url(){
         return image_url;
+    }
+    public static ArrayList<String> getCategory(){
+        return category;
     }
 
 }

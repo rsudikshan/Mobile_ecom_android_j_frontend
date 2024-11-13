@@ -37,7 +37,7 @@ public class Home extends Fragment {
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                
+
                 videoView.start();
             }
         });
