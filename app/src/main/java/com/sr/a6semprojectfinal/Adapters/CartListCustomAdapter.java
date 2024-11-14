@@ -1,6 +1,8 @@
 package com.sr.a6semprojectfinal.Adapters;
 
 import android.content.Context;
+import android.media.Image;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ public class CartListCustomAdapter extends BaseAdapter {
     Context context;
     public CartListCustomAdapter(Context context){
         this.context = context;
+        CartData.setDefaultProductCount();
     }
 
     @Override
@@ -42,10 +45,22 @@ public class CartListCustomAdapter extends BaseAdapter {
         TextView itemPrice = item.findViewById(R.id.cart_data_custom_item_total_price);
         Button remove = item.findViewById(R.id.cart_data_custom_item_remove);
 
+        ImageView increase = item.findViewById(R.id.cart_data_custom_item_add_quantity);
+        ImageView decrease = item.findViewById(R.id.cart_data_custom_item_remove_quantity);
+        TextView count = item.findViewById(R.id.cart_data_custom_item_quantity);
+
+
+        //Log.d("Size",String.valueOf(CartData.sameProductCount.size()));
+
+        count.setText(String.valueOf(CartData.sameProductCount.get(i)));
+
+
 
         Picasso.get().load(CartData.imageURL.get(i)).into(itemImage);
         itemName.setText(CartData.productNames.get(i));
         itemPrice.setText(CartData.productPrice.get(i));
+
+
 
         remove.setOnClickListener((a)->{
             CartData.imageURL.remove(i);
@@ -58,6 +73,9 @@ public class CartListCustomAdapter extends BaseAdapter {
 
         return item;
     }
+
+
+
 
 
 

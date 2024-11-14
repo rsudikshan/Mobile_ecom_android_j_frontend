@@ -5,7 +5,7 @@ import com.sr.a6semprojectfinal.Main;
 public class URLHolder {
 
 
-    public static String MainURL = "https://234f-2400-1a00-b060-452f-c80c-23ee-83de-1efa.ngrok-free.app";
+    public static String MainURL = "https://69b1-2400-1a00-b060-452f-84b2-1346-34d5-fcc2.ngrok-free.app";
     public static String APIUrl = MainURL+"/endpoints/APIendpoints/";
     public static String ImageUrl = MainURL+"/endpoints/ImageStore/";
 
@@ -18,6 +18,8 @@ public class URLHolder {
     public static String recommendedProducts = APIUrl+"recommendedProducts.php";
     public static String searchURL = APIUrl+"searchProducts.php";
     public static String setTransaction = APIUrl+"setTransactionHistory.php";
+    public static String getTransaction = APIUrl+"getTransactionHistory.php";
+
 
 
 

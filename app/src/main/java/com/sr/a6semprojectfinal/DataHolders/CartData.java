@@ -10,6 +10,7 @@ public class CartData {
     public static ArrayList<String> imageURL = new ArrayList<>();
 
     public static ArrayList<String> category = new ArrayList<>();
+    public static ArrayList<Integer> sameProductCount = new ArrayList<>();
 
 
     public static int getTotalPrice(){
@@ -33,20 +34,20 @@ public class CartData {
     }
 
     public static String findMostRepeatedCategory(ArrayList<String> categories) {
-        // Create a HashMap to store the frequency of each category
+
         HashMap<String, Integer> frequencyMap = new HashMap<>();
 
-        // Iterate through the list and count the occurrences of each category
+
         for (String category : categories) {
-            // Update the count of the current category
+
             frequencyMap.put(category, frequencyMap.getOrDefault(category, 0) + 1);
         }
 
-        // Initialize variables to track the most repeated category
+
         String mostRepeatedCategory = null;
         int maxCount = 0;
 
-        // Iterate through the map to find the category with the highest frequency
+
         for (Map.Entry<String, Integer> entry : frequencyMap.entrySet()) {
             if (entry.getValue() > maxCount) {
                 maxCount = entry.getValue();
@@ -55,6 +56,14 @@ public class CartData {
         }
 
         return mostRepeatedCategory;
+    }
+
+    public static void setDefaultProductCount(){
+        int i,size = productNames.size();
+        for(i = 0 ; i<size ; i++ ){
+
+            sameProductCount.add(i+1);
+        }
     }
 
 

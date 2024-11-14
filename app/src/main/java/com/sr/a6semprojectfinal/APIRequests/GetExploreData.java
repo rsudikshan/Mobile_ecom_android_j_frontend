@@ -75,7 +75,7 @@ public class GetExploreData {
                                 imageURL.add(URLHolder.ImageUrl+object.getString("image"));
                                 category.add(object.getString("category"));
                                 Log.d("Volley",category.get(0));
-                                complete.onResults();
+
                             }
                             catch (Exception e){
                                 Toast.makeText(context,"Invalid JSON",Toast.LENGTH_SHORT).show();
@@ -84,7 +84,9 @@ public class GetExploreData {
                                 complete.onCategoryError();
                             }
 
+
                         }
+                        complete.onResults();
 
                     }
             },

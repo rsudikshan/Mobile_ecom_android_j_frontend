@@ -5,12 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.sr.a6semprojectfinal.APIRequests.GetTransactionHistory;
 import com.sr.a6semprojectfinal.APIRequests.LogoutRequest;
+import com.sr.a6semprojectfinal.Adapters.HistoryListCustomAdapter;
 import com.sr.a6semprojectfinal.DataHolders.SessionReference;
 import com.sr.a6semprojectfinal.R;
 
@@ -19,6 +22,7 @@ public class UserInfo extends Fragment {
     TextView username;
     TextView email;
     Button logout;
+
 
 
     @Override
@@ -49,10 +53,38 @@ public class UserInfo extends Fragment {
 
             }
         });
+
+        list_handler();
+
         return view;
 
 
 
+    }
+
+    public void list_handler(){
+        ListView listView = view.findViewById(R.id.history_list);
+        GetTransactionHistory.getTransactionHistory(getContext(), new GetTransactionHistory.CompletionListener() {
+            @Override
+            public void onCompletion() {
+                HistoryListCustomAdapter customAdapter = new HistoryListCustomAdapter(getContext(),
+                        GetTransactionHistory.getProductNames(),
+                        GetTransactionHistory.getProductPrice(),
+                        GetTransactionHistory.getOrderDate(),
+                        GetTransactionHistory.getTransactionKey());
+                listView.setAdapter(customAdapter);
+            }
+
+            @Override
+            public void onError() {
+
+            }
+
+            @Override
+            public void onServerError() {
+
+            }
+        });
     }
 }
 //TODO bg loading videos , Better UI For User Profile , History , Logout Sync/Server check, Sending JSON object not key value hashmap

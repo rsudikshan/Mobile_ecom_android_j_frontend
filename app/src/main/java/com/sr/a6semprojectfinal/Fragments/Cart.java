@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
@@ -18,7 +19,6 @@ import com.sr.a6semprojectfinal.R;
 public class Cart extends Fragment {
     View view;
     Button button;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle b){
         super.onCreateView(inflater,container,b);
@@ -39,6 +39,9 @@ public class Cart extends Fragment {
         listView.setAdapter(adapter);
 
         button = view.findViewById(R.id.checkout_button);
+
+
+
 
 
         button.setOnClickListener(new View.OnClickListener() {

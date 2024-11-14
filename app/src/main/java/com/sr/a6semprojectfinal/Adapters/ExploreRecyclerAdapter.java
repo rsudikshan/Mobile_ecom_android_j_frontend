@@ -29,10 +29,7 @@ public class ExploreRecyclerAdapter extends RecyclerView.Adapter<ExploreRecycler
 
     public ExploreRecyclerAdapter(Context context){
         this.context = context;
-        Log.d("Adapter","Initialized");
-        productNames = new ArrayList<>();
-        productPrice = new ArrayList<>();
-        imageURL = new ArrayList<>();
+
 
 
     }
@@ -75,10 +72,12 @@ public class ExploreRecyclerAdapter extends RecyclerView.Adapter<ExploreRecycler
                         String cartImageURL = imageURL.get(i);
                         String cartCategory = category.get(i);
 
+
                         CartData.productNames.add(cartProductName);
                         CartData.productPrice.add(cartProductPrice);
                         CartData.imageURL.add(cartImageURL);
                         CartData.category.add(cartCategory);
+
 
                         Toast.makeText(context, cartProductName + " Added to Cart", Toast.LENGTH_SHORT).show();
 

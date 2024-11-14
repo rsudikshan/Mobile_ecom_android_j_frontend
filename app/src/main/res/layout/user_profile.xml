@@ -77,16 +77,88 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <!-- Title: Transaction History -->
+    <TextView
+        android:id="@+id/transactionHistoryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Transaction History"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintTop_toBottomOf="@id/info_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Table Header (Transaction History Columns) -->
+    <LinearLayout
+        android:id="@+id/tableHeader"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@color/light_gray"
+        app:layout_constraintTop_toBottomOf="@id/transactionHistoryTitle">
+
+        <!-- Product Name Column -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Product Name"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="start"
+            android:paddingEnd="8dp" />
+
+        <!-- Price Column -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Price"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:paddingEnd="8dp" />
+
+        <!-- Date Column -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Date"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:paddingEnd="8dp" />
+
+        <!-- Transaction ID Column -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Transaction ID"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="end"
+            android:paddingEnd="8dp" />
+
+    </LinearLayout>
+
     <!-- ListView for History -->
     <ListView
         android:id="@+id/history_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/info_container"
+        app:layout_constraintTop_toBottomOf="@id/tableHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:divider="@color/light_gray"
         android:dividerHeight="1dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
