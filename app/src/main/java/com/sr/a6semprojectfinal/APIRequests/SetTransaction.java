@@ -50,13 +50,23 @@ public class SetTransaction {
             public Map<String,String> getParams(){
                 HashMap<String, String> params = new HashMap<>();
 
-                JSONArray array = new JSONArray(CartData.productNames);
+
+
                 String totalPrice = String.valueOf(CartData.getTotalPrice());
                 String numOfProducts = String.valueOf(CartData.getNumOfProductsInCart());
                 String dominantCategory = CartData.getMostPreferredCategory();
 
-                params.put("user_name", SessionReference.username);
+
+                JSONArray array = new JSONArray(CartData.productNames);
+                JSONArray priceArray = new JSONArray(CartData.productPrice);
+                JSONArray productCount = new JSONArray(CartData.sameProductCount);
+
                 params.put("product_names",String.valueOf(array));
+                params.put("product_details_price",String.valueOf(priceArray));
+                params.put("product_individual_count",String.valueOf(productCount));
+
+                params.put("user_name", SessionReference.username);
+
                 params.put("product_price",totalPrice);
                 params.put("product_number",numOfProducts);
                 params.put("product_category",dominantCategory);

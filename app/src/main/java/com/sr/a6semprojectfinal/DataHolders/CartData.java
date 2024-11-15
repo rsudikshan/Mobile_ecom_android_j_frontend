@@ -11,6 +11,7 @@ public class CartData {
 
     public static ArrayList<String> category = new ArrayList<>();
     public static ArrayList<Integer> sameProductCount = new ArrayList<>();
+    public static ArrayList<String> defaultPriceHolder = new ArrayList<>();
 
 
     public static int getTotalPrice(){
@@ -62,9 +63,26 @@ public class CartData {
         int i,size = productNames.size();
         for(i = 0 ; i<size ; i++ ){
 
-            sameProductCount.add(i+1);
+            sameProductCount.add(1);
         }
     }
 
+    public static void multiplyDuplicateProductPrice(){
+        defaultPriceHolder.addAll(productPrice);
+        int size = productNames.size();
+        int i,j;
+
+        for( i = 0 ; i<size ; i++){
+            if(sameProductCount.get(i)>1){
+                int productCount = sameProductCount.get(i);
+                int repeatedProductPrice = Integer.parseInt(defaultPriceHolder.get(i));
+                int finalPrice = productCount*repeatedProductPrice;
+
+                productPrice.set(i,String.valueOf(finalPrice));
+
+
+            }
+        }
+    }
 
 }

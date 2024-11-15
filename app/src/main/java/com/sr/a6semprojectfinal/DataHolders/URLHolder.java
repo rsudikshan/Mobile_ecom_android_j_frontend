@@ -1,11 +1,11 @@
 package com.sr.a6semprojectfinal.DataHolders;
 
-import com.sr.a6semprojectfinal.Main;
+
 
 public class URLHolder {
 
 
-    public static String MainURL = "https://69b1-2400-1a00-b060-452f-84b2-1346-34d5-fcc2.ngrok-free.app";
+    public static String MainURL = "https://cd1a-2400-1a00-b060-4748-b18f-bc11-fe1b-e0d3.ngrok-free.app";
     public static String APIUrl = MainURL+"/endpoints/APIendpoints/";
     public static String ImageUrl = MainURL+"/endpoints/ImageStore/";
 

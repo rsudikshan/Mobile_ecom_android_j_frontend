@@ -36,6 +36,7 @@ public class Cart extends Fragment {
     public void handler(){
         ListView listView = view.findViewById(R.id.cart_list_view);
         CartListCustomAdapter adapter = new CartListCustomAdapter(getContext());
+        CartData.setDefaultProductCount();
         listView.setAdapter(adapter);
 
         button = view.findViewById(R.id.checkout_button);
@@ -54,6 +55,7 @@ public class Cart extends Fragment {
                         CartData.productNames.clear();
                         CartData.productPrice.clear();
                         CartData.category.clear();
+                        CartData.sameProductCount.clear();
 
                         adapter.notifyDataSetChanged();
                     }

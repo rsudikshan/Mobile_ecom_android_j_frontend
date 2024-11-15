@@ -72,14 +72,17 @@ public class ExploreRecyclerAdapter extends RecyclerView.Adapter<ExploreRecycler
                         String cartImageURL = imageURL.get(i);
                         String cartCategory = category.get(i);
 
+                        if(!CartData.productNames.contains(cartProductName)){
+                            CartData.productNames.add(cartProductName);
+                            CartData.productPrice.add(cartProductPrice);
+                            CartData.imageURL.add(cartImageURL);
+                            CartData.category.add(cartCategory);
+                            Toast.makeText(context, cartProductName + " Added to Cart", Toast.LENGTH_SHORT).show();
 
-                        CartData.productNames.add(cartProductName);
-                        CartData.productPrice.add(cartProductPrice);
-                        CartData.imageURL.add(cartImageURL);
-                        CartData.category.add(cartCategory);
-
-
-                        Toast.makeText(context, cartProductName + " Added to Cart", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(context,"Product Already In Cart", Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                     else {

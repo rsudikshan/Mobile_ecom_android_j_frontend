@@ -20,7 +20,7 @@ public class CartListCustomAdapter extends BaseAdapter {
     Context context;
     public CartListCustomAdapter(Context context){
         this.context = context;
-        CartData.setDefaultProductCount();
+
     }
 
     @Override
@@ -54,6 +54,46 @@ public class CartListCustomAdapter extends BaseAdapter {
 
         count.setText(String.valueOf(CartData.sameProductCount.get(i)));
 
+        increase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int currentCount = CartData.sameProductCount.get(i);
+                currentCount++;
+
+
+
+                CartData.sameProductCount.set(i, currentCount);
+                CartData.multiplyDuplicateProductPrice();
+
+                count.setText(String.valueOf(currentCount));
+                itemPrice.setText(CartData.productPrice.get(i));
+            }
+        });
+
+        decrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int currentCount = CartData.sameProductCount.get(i);
+                if (currentCount > 1) {
+                    currentCount--;
+
+
+                    CartData.sameProductCount.set(i, currentCount);
+                    int price = Integer.parseInt(CartData.productPrice.get(i)) - Integer.parseInt(CartData.defaultPriceHolder.get(i));
+                    CartData.productPrice.set(i,String.valueOf(price));
+
+                    count.setText(String.valueOf(currentCount));
+
+
+                    itemPrice.setText(CartData.productPrice.get(i));
+                }
+            }
+        });
+
+
+
 
 
         Picasso.get().load(CartData.imageURL.get(i)).into(itemImage);
@@ -63,6 +103,7 @@ public class CartListCustomAdapter extends BaseAdapter {
 
 
         remove.setOnClickListener((a)->{
+            CartData.sameProductCount.remove(i);
             CartData.imageURL.remove(i);
             CartData.productNames.remove(i);
             CartData.productPrice.remove(i);
