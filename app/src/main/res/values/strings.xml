@@ -20,6 +20,7 @@
     <string name="checkout">Checkout</string>
     <string name="login_username_hint">Insert your username :</string>
     <string name="login_password_hint">Insert your password :</string>
+    <string name="cart_name">Your Cart:</string>
 
 
 </resources>

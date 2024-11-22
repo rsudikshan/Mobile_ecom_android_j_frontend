@@ -22,13 +22,14 @@ import java.util.Map;
 
 public class SetTransaction {
     public interface CompletionListener{
+        public void onStart();
         public void onComplete();
         public void onError();
 
 
     }
     public static void setTransaction(Context context, CompletionListener listener){
-
+        listener.onStart();
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         StringRequest request = new StringRequest(Request.Method.POST, URLHolder.setTransaction,
                 new Response.Listener<String>() {

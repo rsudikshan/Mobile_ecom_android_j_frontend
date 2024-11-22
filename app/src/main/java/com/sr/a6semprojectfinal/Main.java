@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.sr.a6semprojectfinal.APIRequests.LoginCheck;
+import com.sr.a6semprojectfinal.DataHolders.CartData;
 import com.sr.a6semprojectfinal.DataHolders.SessionReference;
 import com.sr.a6semprojectfinal.Fragments.Cart;
 import com.sr.a6semprojectfinal.Fragments.ExploreFragment;
@@ -89,14 +90,23 @@ public class Main extends FragmentActivity {
 
         cart.setOnClickListener((view)->{
             if(SessionReference.isLoggedIn){
-                FragmentManager manager = getSupportFragmentManager();
-                Cart cartFragment  = new Cart();
-                FragmentTransaction transaction = manager.beginTransaction();
-                transaction.replace(R.id.fragment_container,cartFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                if(CartData.productPrice.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Please Add Items To Cart",Toast.LENGTH_SHORT
+                    ).show();;
+                }
+                else {
+                    
+                    FragmentManager manager = getSupportFragmentManager();
+                    Cart cartFragment  = new Cart();
+                    FragmentTransaction transaction = manager.beginTransaction();
+                    transaction.replace(R.id.fragment_container,cartFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+
 
             }
+
             else {
                 Toast.makeText(this,"You're logged out.",Toast.LENGTH_SHORT).show();;
 

@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
+import com.sr.a6semprojectfinal.APIRequests.GetRecommendedProducts;
 import com.sr.a6semprojectfinal.DataHolders.CartData;
 import com.sr.a6semprojectfinal.DataHolders.SessionReference;
 import com.sr.a6semprojectfinal.R;
@@ -40,18 +41,19 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         int i = position;
 
-        viewHolder.name.setText(productNames.get(position));
-        viewHolder.price.setText("Rs: "+productPrice.get(position));
-        Picasso.get().load(imageURL.get(position)).fit().centerInside().into(viewHolder.itemImage);
+        viewHolder.name.setText(GetRecommendedProducts.product_name.get(position));
+        viewHolder.price.setText("Rs: "+GetRecommendedProducts.product_price.get(position));
+        Picasso.get().load(GetRecommendedProducts.product_image.get(position)).fit().centerInside().into(viewHolder.itemImage);
 
 
         viewHolder.order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(SessionReference.isLoggedIn){
-                    String cartProductName = productNames.get(i);
-                    String cartProductPrice = productPrice.get(i);
-                    String cartImageURL = imageURL.get(i);
+
+                    String cartProductName = GetRecommendedProducts.product_name.get(i);
+                    String cartProductPrice = GetRecommendedProducts.product_price.get(i);
+                    String cartImageURL = GetRecommendedProducts.product_image.get(i);
 
                     CartData.productNames.add(cartProductName);
                     CartData.productPrice.add(cartProductPrice);
@@ -74,7 +76,7 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
 
     @Override
     public int getItemCount() {
-        return productNames.size();
+        return GetRecommendedProducts.product_name.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

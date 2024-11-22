@@ -5,27 +5,60 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cart_list_view"
+        android:textSize="26sp"
+        android:text="@string/cart_name"
+        android:textAlignment="center"
+        android:id="@+id/cart_text"
+        android:textColor="@color/black"
+        android:fontFamily="@font/hogbine"
+
+        android:layout_marginTop="20dp"
+
+        />
 
     <ListView
         android:id="@+id/cart_list_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="30dp"
 
-        android:dividerHeight="1dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:divider="@color/white"
+        android:dividerHeight="16dp"
+        app:layout_constraintTop_toBottomOf="@id/cart_text"
 
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/checkout_button"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/cart_progress_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="invisible"
+        />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/checkout_button"
+        android:background="@drawable/circle_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
         android:text="@string/checkout"
         android:textSize="18sp"
-        android:backgroundTint="@color/design_default_color_primary_dark"
+        android:backgroundTint="@color/gradient_start"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

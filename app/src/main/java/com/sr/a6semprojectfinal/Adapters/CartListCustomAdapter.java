@@ -104,6 +104,7 @@ public class CartListCustomAdapter extends BaseAdapter {
 
         remove.setOnClickListener((a)->{
             CartData.sameProductCount.remove(i);
+            CartData.defaultPriceHolder.remove(i);
             CartData.imageURL.remove(i);
             CartData.productNames.remove(i);
             CartData.productPrice.remove(i);

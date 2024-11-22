@@ -1,6 +1,7 @@
 package com.sr.a6semprojectfinal.APIRequests;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -13,8 +14,21 @@ import com.sr.a6semprojectfinal.DataHolders.URLHolder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class GetRecommendedProducts {
-    public static void getProducts(Context context){
+
+    public interface CompletionListener{
+        public void onStart();
+        public void onComplete();
+    }
+    public static ArrayList<String> product_name = new ArrayList<>();
+    public static ArrayList<String> product_price = new ArrayList<>();
+    public static ArrayList<String> product_image = new ArrayList<>();
+
+
+    public static void getProducts(Context context, CompletionListener listener){
+        listener.onStart();
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, URLHolder.recommendedProducts, null, new Response.Listener<JSONArray>() {
             @Override
@@ -24,15 +38,24 @@ public class GetRecommendedProducts {
                     int i;
                     for(i = 0; i < length ; i++){
                         JSONObject object = response.getJSONObject(i);
-                        String product_name = object.getString("name");
-                        String product_price = object.getString("price");
-                        String product_file_name = object.getString("image");
+                        String name = object.getString("name");
+                        String price = object.getString("price");
+                        String file_name = object.getString("image");
+
+                        product_name.add(name);
+                        product_price.add(price);
+                        product_image.add(URLHolder.ImageUrl+file_name);
+
+
+
 
                     }
+                    listener.onComplete();
                 }
                 catch (Exception e){
-
+                    Log.d("Home","Couldn't Parse");
                 }
+
 
             }
         }, new Response.ErrorListener() {

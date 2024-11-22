@@ -54,29 +54,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-
-
-        <!-- Search Input -->
-        <EditText
-            android:id="@+id/search_input"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:hint="Search for products..."
-            android:background="@drawable/rounded_edittext_background"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:textColorHint="@color/dividerGray" />
-
-        <!-- Search Icon -->
-        <ImageView
-            android:id="@+id/search_icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/baseline_search_24"
-            android:contentDescription="Search Icon"
-            android:padding="10dp"
-            android:background="?attr/selectableItemBackgroundBorderless" />
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="100"
+            android:visibility="invisible"
+            android:id="@+id/home_progress_bar"
+            android:progressDrawable="@drawable/progress_bar_horizontal"
+            />
     </LinearLayout>
 
     <VideoView

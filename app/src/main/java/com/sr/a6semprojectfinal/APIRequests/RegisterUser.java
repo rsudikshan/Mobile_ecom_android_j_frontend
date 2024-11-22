@@ -68,5 +68,3 @@ public class RegisterUser {
 
     }
 }
-
-//TODO async ui update
